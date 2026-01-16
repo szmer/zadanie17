@@ -1,7 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 
-u(double a, double b, double c) {
+
+
+
+double obliczObjetoscProstopadloscianu(double a, double b, double c) {
     return a * b * c;
 }
 
