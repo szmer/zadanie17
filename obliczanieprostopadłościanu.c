@@ -1,30 +1,32 @@
 #include <stdio.h>
+#include <math.h>
 
-double obliczObjetosc(double a, double b, double c) {
-    return a * b * c;
+
+// Wzór: V = 4/3 * Pi * r^3
+double obliczObjetoscKuli(double r) {
+
+    return (4.0 / 3.0) * M_PI * pow(r, 3);
 }
 
 int main() {
-    double a, b, c;
-
+    double r;
     double wynik;
 
-    printf("=== Program obliczajacy objetosc prostopadloscianu ===\n\n");
+    printf("=== Program obliczajacy objetosc kuli ===\n\n");
 
-    printf("Podaj dlugosc boku a: ");
-    if (scanf("%lf", &a) != 1) { printf("Blad: podaj liczbe!\n"); return 1; }
+    printf("Podaj promien kuli (r): ");
+    if (scanf("%lf", &r) != 1) {
+        printf("Blad: podaj poprawna liczbe!\n");
+        return 1;
+    }
 
-    printf("Podaj dlugosc boku b: ");
-    if (scanf("%lf", &b) != 1) { printf("Blad: podaj liczbe!\n"); return 1; }
 
-    printf("Podaj dlugosc boku c: ");
-    if (scanf("%lf", &c) != 1) { printf("Blad: podaj liczbe!\n"); return 1; }
-
-    if (a <= 0 || b <= 0 || c <= 0) {
-        printf("\nBlad: Wymiary musza byc wieksze od zera!\n");
+    if (r <= 0) {
+        printf("\nBlad: Promien musi byc wiekszy od zera!\n");
     } else {
-        wynik = obliczObjetosc(a, b, c);
-        printf("\nObjetosc prostopadloscianu wynosi: %.2lf\n", wynik);
+
+        wynik = obliczObjetoscKuli(r);
+        printf("\nObjetosc kuli o promieniu %.2lf wynosi: %.2lf\n", r, wynik);
     }
 
     return 0;
